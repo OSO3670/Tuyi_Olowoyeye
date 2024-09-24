@@ -9,11 +9,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const headerHeight = mainNav.clientHeight;
 
     // Responsive menu toggle
-    const mobileMenu = document.getElementById('mobile-menu'); // Ensure this ID matches your HTML
-    const navList = document.querySelector('.nav-list'); // Ensure this class matches your HTML
+    const mobileMenu = document.querySelector('.navbar-toggler'); // Selects the button to toggle the menu
+    const navList = document.getElementById('navbarResponsive'); // Selects the collapsible navigation list
 
     mobileMenu.addEventListener('click', () => {
-        navList.classList.toggle('active'); // Toggle the active class for the nav list
+        navList.classList.toggle('show'); // Toggle the show class for the navbar
     });
 
     window.addEventListener('scroll', function() {
