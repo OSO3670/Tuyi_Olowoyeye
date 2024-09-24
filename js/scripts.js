@@ -7,9 +7,18 @@ window.addEventListener('DOMContentLoaded', () => {
     let scrollPos = 0;
     const mainNav = document.getElementById('mainNav');
     const headerHeight = mainNav.clientHeight;
+
+    // Responsive menu toggle
+    const mobileMenu = document.getElementById('mobile-menu'); // Ensure this ID matches your HTML
+    const navList = document.querySelector('.nav-list'); // Ensure this class matches your HTML
+
+    mobileMenu.addEventListener('click', () => {
+        navList.classList.toggle('active'); // Toggle the active class for the nav list
+    });
+
     window.addEventListener('scroll', function() {
         const currentTop = document.body.getBoundingClientRect().top * -1;
-        if ( currentTop < scrollPos) {
+        if (currentTop < scrollPos) {
             // Scrolling Up
             if (currentTop > 0 && mainNav.classList.contains('is-fixed')) {
                 mainNav.classList.add('is-visible');
@@ -19,11 +28,11 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             // Scrolling Down
-            mainNav.classList.remove(['is-visible']);
+            mainNav.classList.remove('is-visible');
             if (currentTop > headerHeight && !mainNav.classList.contains('is-fixed')) {
                 mainNav.classList.add('is-fixed');
             }
         }
         scrollPos = currentTop;
     });
-})
+});
